@@ -327,57 +327,43 @@
                 <div class="spec-item" id="spec-frame">Frame: Real Photo Graphic</div>
                 <div class="spec-item" id="spec-wheels">Wheels: 88mm Carbon Deep</div>
                 <div class="spec-item" id="spec-cockpit">Cockpit: Track Drop Bar</div>
-            </div>
+         <g id="bike-group">
+    <!-- 1. REAR WHEEL -->
+    <g id="layer-rear-wheel"></g>
 
-            <div class="studio-stage">
-                <svg id="bike-svg" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Floor Shadow -->
-                    <ellipse cx="400" cy="445" rx="310" ry="12" fill="#000" opacity="0.4" />
+    <!-- 2. DRIVE TRAIN & CHAIN -->
+    <g id="layer-drivetrain">
+        <path d="M 230,360 L 392,360" stroke="#888" stroke-width="3" stroke-dasharray="4 2" />
+        <path d="M 230,360 L 392,360" id="chain-top" stroke="#aaaaaa" stroke-width="3" />
+        <path d="M 230,360 L 392,360" id="chain-bottom" stroke="#888888" stroke-width="3" />
+        <circle cx="230" cy="360" r="16" fill="#333" stroke="#888" stroke-width="2"/>
+        <circle cx="392" cy="360" r="38" fill="#111" stroke="#333" stroke-width="3"/>
+        <circle cx="392" cy="360" r="32" fill="none" stroke="#666" stroke-width="3" stroke-dasharray="6 3"/>
+        <line x1="392" y1="360" x2="392" y2="400" stroke="#222" stroke-width="10" stroke-linecap="round"/>
+        <rect x="377" y="395" width="30" height="10" rx="3" fill="#444" />
+    </g>
 
-                    <g id="bike-group">
-                        <!-- 1. REAR WHEEL -->
-                        <g id="layer-rear-wheel"></g>
+    <!-- 3. REAL FRAME IMAGE -->
+    <g id="layer-frame">
+        <image href="image-removebg-preview.png" x="220" y="145" width="350" height="225"/>
+    </g>
 
-                        <!-- 2. DRIVE TRAIN & CHAIN -->
-                        <g id="layer-drivetrain">
-                            <path d="M 230,360 L 390,360" stroke="#888" stroke-width="3" stroke-dasharray="4 2" />
-                            <path d="M 230,360 L 390,360" id="chain-top" stroke="#aaaaaa" stroke-width="3" />
-                            <path d="M 230,360 L 390,360" id="chain-bottom" stroke="#888888" stroke-width="3" />
-                            <circle cx="230" cy="360" r="16" fill="#333" stroke="#888" stroke-width="2"/>
-                            <circle cx="390" cy="360" r="38" fill="#111" stroke="#333" stroke-width="3"/>
-                            <circle cx="390" cy="360" r="32" fill="none" stroke="#666" stroke-width="3" stroke-dasharray="6 3"/>
-                            <line x1="390" y1="360" x2="390" y2="410" stroke="#222" stroke-width="10" stroke-linecap="round"/>
-                            <rect x="375" y="405" width="30" height="10" rx="3" fill="#444" />
-                        </g>
+    <!-- 4. FRONT WHEEL -->
+    <g id="layer-front-wheel"></g>
 
-                        <!-- 3. REAL FRAME IMAGE (Engine 11 Sprinter) -->
-                        <g id="layer-frame">
-                           <image href="image-removebg-preview.png" x="195" y="120" width="415" height="260"/>
-                        </g>
+    <!-- 5. SEATPOST & SADDLE -->
+    <g id="layer-saddle">
+        <line x1="334" y1="210" x2="320" y2="135" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+        <rect x="313" y="130" width="14" height="8" rx="2" fill="#333" />
+        <path id="saddle-shape" d="M 285,127 C 305,125 335,125 350,130 C 353,131 347,137 330,137 C 310,137 290,133 285,127 Z" fill="#18181b" stroke="#333" stroke-width="1"/>
+    </g>
 
-                        <!-- 4. FRONT WHEEL -->
-                        <g id="layer-front-wheel"></g>
-
-                        <!-- 5. SEATPOST & SADDLE -->
-                        <g id="layer-saddle">
-                            <line x1="318" y1="180" x2="305" y2="120" stroke="#111" stroke-width="10" stroke-linecap="round"/>
-                            <rect x="298" y="115" width="14" height="8" rx="2" fill="#333" />
-                            <path id="saddle-shape" d="M 270,112 C 290,110 320,110 335,115 C 338,116 332,122 315,122 C 295,122 275,118 270,112 Z" fill="#18181b" stroke="#333" stroke-width="1"/>
-                        </g>
-
-                        <!-- 6. COCKPIT (Stem & Handlebar) -->
-                        <g id="layer-cockpit">
-                            <path d="M 570,158 L 593,153 L 603,160 L 573,166 Z" fill="#18181b" />
-                            <g id="handlebar-graphic"></g>
-                        </g>
-                    </g>
-                </svg>
-            </div>
-
-            <div class="preset-bar">
-                <button class="preset-btn active" onclick="applyPreset('stealth')">스텔스 딥림</button>
-                <button class="preset-btn" onclick="applyPreset('classic')">클래식 로우림</button>
-                <button class="preset-btn" onclick="applyPreset('trispoke')">에어로 삼발이</button>
+    <!-- 6. COCKPIT (Stem & Handlebar) -->
+    <g id="layer-cockpit">
+        <path d="M 522,178 L 545,173 L 555,180 L 525,186 Z" fill="#18181b" />
+        <g id="handlebar-graphic"></g>
+    </g>
+</g>
             </div>
         </div>
 
