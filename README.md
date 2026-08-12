@@ -352,7 +352,7 @@
 
                         <!-- 3. REAL FRAME IMAGE (Engine 11 Sprinter) -->
                         <g id="layer-frame">
-                            <image href="https://i.ibb.co/3yn4k9G0/engine11-sprinter.png" x="195" y="120" width="415" height="260"/>
+                           <image href="image-removebg-preview.png" x="195" y="120" width="415" height="260"/>
                         </g>
 
                         <!-- 4. FRONT WHEEL -->
