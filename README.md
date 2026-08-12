@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fixie Custom Showroom (픽시 커스텀 쇼룸)</title>
+    <title>Engine 11 Sprinter Custom Showroom</title>
     <style>
         :root {
             --bg-color: #121214;
@@ -78,9 +78,6 @@
             font-weight: 600;
             font-size: 0.85rem;
             transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            gap: 6px;
         }
 
         .btn:hover {
@@ -147,6 +144,7 @@
             border-radius: 10px;
             border: 1px solid var(--border-color);
             font-size: 0.8rem;
+            z-index: 10;
         }
 
         .spec-badge h3 {
@@ -170,6 +168,7 @@
             padding: 8px 12px;
             border-radius: 30px;
             border: 1px solid var(--border-color);
+            z-index: 10;
         }
 
         .preset-btn {
@@ -209,7 +208,6 @@
             display: flex;
             background-color: #17171c;
             border-bottom: 1px solid var(--border-color);
-            overflow-x: auto;
         }
 
         .tab {
@@ -221,7 +219,6 @@
             color: var(--text-secondary);
             cursor: pointer;
             border-bottom: 2px solid transparent;
-            white-space: nowrap;
         }
 
         .tab.active {
@@ -311,12 +308,12 @@
 
     <header>
         <div class="logo-area">
-            <div class="logo-badge">FIXIE</div>
-            <h1>Engine 11 Sprinter Custom Showroom</h1>
+            <div class="logo-badge">ENGINE 11</div>
+            <h1>Sprinter Custom Showroom</h1>
         </div>
         <div class="header-actions">
             <button class="btn" onclick="resetBuild()">초기화</button>
-            <button class="btn btn-primary" onclick="exportConfig()">이미지 저장</button>
+            <button class="btn btn-primary" onclick="exportConfig()">설정 저장</button>
         </div>
     </header>
 
@@ -325,45 +322,58 @@
             <div class="spec-badge">
                 <h3 id="build-title">Engine 11 Sprinter Build</h3>
                 <div class="spec-item" id="spec-frame">Frame: Real Photo Graphic</div>
-                <div class="spec-item" id="spec-wheels">Wheels: 88mm Carbon Deep</div>
+                <div class="spec-item" id="spec-wheels">Wheels: F:88mm / R:88mm</div>
                 <div class="spec-item" id="spec-cockpit">Cockpit: Track Drop Bar</div>
-         <g id="bike-group">
-    <!-- 1. REAR WHEEL -->
-    <g id="layer-rear-wheel"></g>
+            </div>
 
-    <!-- 2. DRIVE TRAIN & CHAIN -->
-    <g id="layer-drivetrain">
-        <path d="M 230,360 L 392,360" stroke="#888" stroke-width="3" stroke-dasharray="4 2" />
-        <path d="M 230,360 L 392,360" id="chain-top" stroke="#aaaaaa" stroke-width="3" />
-        <path d="M 230,360 L 392,360" id="chain-bottom" stroke="#888888" stroke-width="3" />
-        <circle cx="230" cy="360" r="16" fill="#333" stroke="#888" stroke-width="2"/>
-        <circle cx="392" cy="360" r="38" fill="#111" stroke="#333" stroke-width="3"/>
-        <circle cx="392" cy="360" r="32" fill="none" stroke="#666" stroke-width="3" stroke-dasharray="6 3"/>
-        <line x1="392" y1="360" x2="392" y2="400" stroke="#222" stroke-width="10" stroke-linecap="round"/>
-        <rect x="377" y="395" width="30" height="10" rx="3" fill="#444" />
-    </g>
+            <div class="studio-stage">
+                <svg id="bike-svg" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="400" cy="445" rx="310" ry="12" fill="#000" opacity="0.4" />
 
-    <!-- 3. REAL FRAME IMAGE -->
-    <g id="layer-frame">
-        <image href="image-removebg-preview.png" x="220" y="145" width="350" height="225"/>
-    </g>
+                    <g id="bike-group">
+                        <!-- 1. REAR WHEEL -->
+                        <g id="layer-rear-wheel"></g>
 
-    <!-- 4. FRONT WHEEL -->
-    <g id="layer-front-wheel"></g>
+                        <!-- 2. DRIVE TRAIN & CHAIN -->
+                        <g id="layer-drivetrain">
+                            <path d="M 230,360 L 392,360" stroke="#888" stroke-width="3" stroke-dasharray="4 2" />
+                            <path d="M 230,360 L 392,360" id="chain-top" stroke="#aaaaaa" stroke-width="3" />
+                            <path d="M 230,360 L 392,360" id="chain-bottom" stroke="#888888" stroke-width="3" />
+                            <circle cx="230" cy="360" r="16" fill="#333" stroke="#888" stroke-width="2"/>
+                            <circle cx="392" cy="360" r="38" fill="#111" stroke="#333" stroke-width="3"/>
+                            <circle cx="392" cy="360" r="32" fill="none" stroke="#666" stroke-width="3" stroke-dasharray="6 3"/>
+                            <line x1="392" y1="360" x2="392" y2="400" stroke="#222" stroke-width="10" stroke-linecap="round"/>
+                            <rect x="377" y="395" width="30" height="10" rx="3" fill="#444" />
+                        </g>
 
-    <!-- 5. SEATPOST & SADDLE -->
-    <g id="layer-saddle">
-        <line x1="334" y1="210" x2="320" y2="135" stroke="#111" stroke-width="9" stroke-linecap="round"/>
-        <rect x="313" y="130" width="14" height="8" rx="2" fill="#333" />
-        <path id="saddle-shape" d="M 285,127 C 305,125 335,125 350,130 C 353,131 347,137 330,137 C 310,137 290,133 285,127 Z" fill="#18181b" stroke="#333" stroke-width="1"/>
-    </g>
+                        <!-- 3. REAL FRAME IMAGE -->
+                        <g id="layer-frame">
+                            <image href="image-removebg-preview.png" x="220" y="145" width="350" height="225"/>
+                        </g>
 
-    <!-- 6. COCKPIT (Stem & Handlebar) -->
-    <g id="layer-cockpit">
-        <path d="M 522,178 L 545,173 L 555,180 L 525,186 Z" fill="#18181b" />
-        <g id="handlebar-graphic"></g>
-    </g>
-</g>
+                        <!-- 4. FRONT WHEEL -->
+                        <g id="layer-front-wheel"></g>
+
+                        <!-- 5. SEATPOST & SADDLE -->
+                        <g id="layer-saddle">
+                            <line x1="334" y1="210" x2="320" y2="135" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+                            <rect x="313" y="130" width="14" height="8" rx="2" fill="#333" />
+                            <path id="saddle-shape" d="M 285,127 C 305,125 335,125 350,130 C 353,131 347,137 330,137 C 310,137 290,133 285,127 Z" fill="#18181b" stroke="#333" stroke-width="1"/>
+                        </g>
+
+                        <!-- 6. COCKPIT (Stem & Handlebar) -->
+                        <g id="layer-cockpit">
+                            <path d="M 522,178 L 545,173 L 555,180 L 525,186 Z" fill="#18181b" />
+                            <g id="handlebar-graphic"></g>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+
+            <div class="preset-bar">
+                <button class="preset-btn active" id="p-stealth" onclick="applyPreset('stealth')">스텔스 딥림</button>
+                <button class="preset-btn" id="p-classic" onclick="applyPreset('classic')">클래식 로우림</button>
+                <button class="preset-btn" id="p-trispoke" onclick="applyPreset('trispoke')">에어로 삼발이</button>
             </div>
         </div>
 
@@ -371,18 +381,18 @@
             <div class="tabs">
                 <div class="tab active" onclick="switchTab('wheels')">휠셋</div>
                 <div class="tab" onclick="switchTab('cockpit')">핸들바</div>
-                <div class="tab" onclick="switchTab('components')">컴포넌트</div>
+                <div class="tab" onclick="switchTab('components')">구성 요소</div>
             </div>
 
             <div class="tab-content" id="tab-wheels">
                 <div>
-                    <div class="section-title">앞바퀴 (Front Wheel)</div>
+                    <div class="section-title">앞바퀴</div>
                     <div class="option-grid">
                         <div class="option-card active" id="opt-front-deep" onclick="setWheel('front', 'deep')">
                             <div class="option-name">88mm 딥림 카본</div>
                         </div>
                         <div class="option-card" id="opt-front-spoke3" onclick="setWheel('front', 'spoke3')">
-                            <div class="option-name">3-Spoke 삼발이</div>
+                            <div class="option-name">3스포크 삼발이</div>
                         </div>
                         <div class="option-card" id="opt-front-low" onclick="setWheel('front', 'low')">
                             <div class="option-name">클래식 로우림</div>
@@ -394,7 +404,7 @@
                 </div>
 
                 <div>
-                    <div class="section-title">뒷바퀴 (Rear Wheel)</div>
+                    <div class="section-title">뒷바퀴</div>
                     <div class="option-grid">
                         <div class="option-card active" id="opt-rear-deep" onclick="setWheel('rear', 'deep')">
                             <div class="option-name">88mm 딥림 카본</div>
@@ -406,7 +416,7 @@
                             <div class="option-name">클래식 로우림</div>
                         </div>
                         <div class="option-card" id="opt-rear-spoke3" onclick="setWheel('rear', 'spoke3')">
-                            <div class="option-name">3-Spoke 삼발이</div>
+                            <div class="option-name">3스포크 삼발이</div>
                         </div>
                     </div>
                 </div>
@@ -447,10 +457,10 @@
                 <div>
                     <div class="section-title">안장 타입</div>
                     <div class="option-grid">
-                        <div class="option-card active" onclick="setSaddle('racing')">
+                        <div class="option-card active" id="opt-saddle-racing" onclick="setSaddle('racing')">
                             <div class="option-name">카본 레이싱 안장</div>
                         </div>
-                        <div class="option-card" onclick="setSaddle('classic')">
+                        <div class="option-card" id="opt-saddle-classic" onclick="setSaddle('classic')">
                             <div class="option-name">클래식 가죽 안장</div>
                         </div>
                     </div>
@@ -515,7 +525,7 @@
 
         function renderFrontWheel() {
             const container = document.getElementById('layer-front-wheel');
-            const cx = 590, cy = 360, r = 100;
+            const cx = 570, cy = 360, r = 100;
             container.innerHTML = generateWheelSVG(cx, cy, r, state.frontWheel);
         }
 
@@ -575,25 +585,30 @@
             const container = document.getElementById('handlebar-graphic');
             let svg = '';
             if(state.handlebar === 'track') {
-                svg = `<path d="M 593,153 C 613,153 623,173 618,203 C 613,218 598,223 588,218" fill="none" stroke="${state.gripColor}" stroke-width="8" stroke-linecap="round"/>`;
+                svg = `<path d="M 545,173 C 565,173 575,193 570,223 C 565,238 550,243 540,238" fill="none" stroke="${state.gripColor}" stroke-width="8" stroke-linecap="round"/>`;
             } else if(state.handlebar === 'riser') {
-                svg = `<path d="M 593,153 L 603,143 L 628,143" fill="none" stroke="${state.gripColor}" stroke-width="8" stroke-linecap="round"/>
-                       <path d="M 593,153 L 583,163 L 558,163" fill="none" stroke="${state.gripColor}" stroke-width="8" stroke-linecap="round"/>`;
+                svg = `<path d="M 545,173 L 555,163 L 580,163" fill="none" stroke="${state.gripColor}" stroke-width="8" stroke-linecap="round"/>
+                       <path d="M 545,173 L 535,183 L 510,183" fill="none" stroke="${state.gripColor}" stroke-width="8" stroke-linecap="round"/>`;
             } else if(state.handlebar === 'bullhorn') {
-                svg = `<path d="M 593,153 L 623,153 L 638,133" fill="none" stroke="${state.gripColor}" stroke-width="8" stroke-linecap="round"/>`;
+                svg = `<path d="M 545,173 L 575,173 L 590,153" fill="none" stroke="${state.gripColor}" stroke-width="8" stroke-linecap="round"/>`;
             } else {
-                svg = `<path d="M 593,153 C 608,153 618,163 613,188" fill="none" stroke="${state.gripColor}" stroke-width="8" stroke-linecap="round"/>`;
+                svg = `<path d="M 545,173 C 560,173 570,183 565,208" fill="none" stroke="${state.gripColor}" stroke-width="8" stroke-linecap="round"/>`;
             }
             container.innerHTML = svg;
         }
 
         function setGripColor(color) {
             state.gripColor = color;
+            document.querySelectorAll('.color-swatch').forEach(sw => sw.classList.remove('active'));
+            if(event && event.target) event.target.classList.add('active');
             renderHandlebar();
         }
 
         function setSaddle(type) {
             state.saddle = type;
+            document.querySelectorAll('#tab-components .option-card').forEach(el => el.classList.remove('active'));
+            const selected = document.getElementById('opt-saddle-' + type);
+            if(selected) selected.classList.add('active');
             renderSaddle();
         }
 
@@ -601,19 +616,19 @@
             const el = document.getElementById('saddle-shape');
             if(!el) return;
             if(state.saddle === 'racing') {
-                el.setAttribute('d', 'M 270,112 C 290,110 320,110 335,115 C 338,116 332,122 315,122 C 295,122 275,118 270,112 Z');
+                el.setAttribute('d', 'M 285,127 C 305,125 335,125 350,130 C 353,131 347,137 330,137 C 310,137 290,133 285,127 Z');
                 el.setAttribute('fill', '#18181b');
             } else {
-                el.setAttribute('d', 'M 265,110 C 290,108 320,108 338,115 C 340,118 330,125 310,124 C 290,124 270,120 265,110 Z');
+                el.setAttribute('d', 'M 280,125 C 305,123 335,123 353,130 C 355,133 345,140 325,139 C 305,139 285,135 280,125 Z');
                 el.setAttribute('fill', '#78350f');
             }
         }
 
         function updateSpecs() {
-            const hbMap = { track: 'Track Drop Bar', riser: 'Wide Riser Bar', bullhorn: 'Aero Bullhorn Bar', road: 'Compact Road Bar' };
-            const wheelMap = { deep: '88mm Carbon Deep', spoke3: '3-Spoke Carbon', low: 'Classic Low-Profile', disc: 'Aero Disc Wheel' };
-            document.getElementById('spec-cockpit').innerText = 'Cockpit: ' + (hbMap[state.handlebar] || state.handlebar);
-            document.getElementById('spec-wheels').innerText = `Wheels: F:${wheelMap[state.frontWheel]} / R:${wheelMap[state.rearWheel]}`;
+            const hbMap = { track: '트랙 드롭바', riser: '와이드 라이저바', bullhorn: '에어로 불혼바', road: '컴팩트 로드바' };
+            const wheelMap = { deep: '88mm 딥림', spoke3: '3스포크 삼발이', low: '클래식 로우림', disc: '에어로 디스크' };
+            document.getElementById('spec-cockpit').innerText = '조종석: ' + (hbMap[state.handlebar] || state.handlebar);
+            document.getElementById('spec-wheels').innerText = `휠: 전: ${wheelMap[state.frontWheel]} / 후: ${wheelMap[state.rearWheel]}`;
         }
 
         function resetBuild() {
@@ -621,10 +636,17 @@
             state.rearWheel = 'deep';
             state.handlebar = 'track';
             state.gripColor = '#18181b';
+            state.saddle = 'racing';
+            
+            document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('p-stealth').classList.add('active');
             renderAll();
         }
 
         function applyPreset(preset) {
+            document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+            if(event && event.target) event.target.classList.add('active');
+
             if(preset === 'stealth') {
                 state.frontWheel = 'deep';
                 state.rearWheel = 'deep';
@@ -638,11 +660,19 @@
                 state.rearWheel = 'disc';
                 state.handlebar = 'bullhorn';
             }
+
+            document.querySelectorAll('#tab-wheels .option-card').forEach(el => el.classList.remove('active'));
+            document.getElementById(`opt-front-${state.frontWheel}`).classList.add('active');
+            document.getElementById(`opt-rear-${state.rearWheel}`).classList.add('active');
+
+            document.querySelectorAll('#tab-cockpit .option-card').forEach(el => el.classList.remove('active'));
+            document.getElementById(`opt-bar-${state.handlebar}`).classList.add('active');
+
             renderAll();
         }
 
         function exportConfig() {
-            alert('현재 엔진11 커스텀 설정이 저장되었습니다!');
+            alert('현재 엔진11 커스텀 설정이 정상적으로 저장되었습니다!');
         }
     </script>
 </body>
