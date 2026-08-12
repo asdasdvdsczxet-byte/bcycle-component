@@ -347,8 +347,9 @@
                         </g>
 
                         <!-- 3. REAL FRAME IMAGE -->
-                        <g id="layer-frame">
-                            <image href="image-removebg-preview.png" x="220" y="145" width="350" height="225"/>
+                       <g id="layer-frame">
+    <image href="image-removebg-preview.png" x="180" y="140" width="440" height="260"/>
+</g>
                         </g>
 
                         <!-- 4. FRONT WHEEL -->
